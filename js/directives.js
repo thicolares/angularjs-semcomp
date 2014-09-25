@@ -11,3 +11,12 @@ protocoloDirectives.directive('proEmpresa', function() {
 		templateUrl: "partials/empresa.html"
 	}
 });
+
+protocoloDirectives.directive('proObrigatorio', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			element.html(element.text() + ' <span style="color: red;">*</span>');
+		}
+	}
+});
