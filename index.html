@@ -50,6 +50,23 @@
 				  	
 
 				</form>
+
+				<div class="row"> 
+					<h3>Reclamações</h3>
+					<p class="well" ng-show="reclamacoes.length <= 0"><em>Nenhuma reclamação cadastrada.</em></p>
+
+					<table class="table table-bordered" ng-show="reclamacoes.length > 0">
+						<tr>
+							<th>Reclamação</th>
+							<th>Empresa</th>
+						</tr>
+						<tr ng-repeat="reclamacao in reclamacoes">
+							<td>{{reclamacao.titulo}}</td>
+							<td>{{reclamacao.empresa.nome}} ({{reclamacao.empresa.descricao}})</td>
+						</tr>
+					</table>
+				</div>
+
 			</div>
 		</div><!--/.container-fluid -->
 
