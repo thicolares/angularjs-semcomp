@@ -20,3 +20,7 @@ protocoloDirectives.directive('proObrigatorio', function() {
 		}
 	}
 });
+
+// protocoloDirectives.directive('proComentario', function() {
+
+// });

@@ -4,7 +4,7 @@
 
 var protocoloControllers = angular.module('protocoloControllers', []);
 
-protocolosApp.controller('GerenciarReclamacoesCtrl', function($scope, $http) {
+protocoloControllers.controller('GerenciarReclamacoesCtrl', function($scope, $http) {
 	$http.get('json/empresas.json').success( function(data) {
 		$scope.empresas = data;
 	});
@@ -13,8 +13,12 @@ protocolosApp.controller('GerenciarReclamacoesCtrl', function($scope, $http) {
 		$scope.reclamacoes = data;
 	});
 
+	$scope.inserirModal = function(reclamacao) {
+		$scope.reclamacaoModal = reclamacao;
+	}
+	
 	$scope.adicionarReclamacao = function() {
-		$scope.reclamacao.data = new Date();
+		$scope.reclamacao.data = new Date()
 		$scope.reclamacoes.push(angular.copy($scope.reclamacao));
 		$scope.reclamacao = {};
 		$scope.reclamacaoForm.$setPristine();
