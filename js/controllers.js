@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-var protocolosApp = angular.module('protocolosApp', []);
+var protocoloControllers = angular.module('protocoloControllers', []);
 
-protocolosApp.controller('EmpresaCtrl', function($scope, $http) {
+protocolosApp.controller('GerenciarReclamacoesCtrl', function($scope, $http) {
 	$http.get('json/empresas.json').success( function(data) {
 		$scope.empresas = data;
 	});
@@ -18,6 +18,12 @@ protocolosApp.controller('EmpresaCtrl', function($scope, $http) {
 		$scope.reclamacao = {};
 		$scope.reclamacaoForm.$setPristine();
 	}
+});
 
-	$scope.reclamacoes = [];
+protocoloControllers.controller('ReclamacaoCtrl', function($scope, $http, $routeParams) {
+	$http.get('json/reclamacoes.json').success( function(data) {
+		$scope.reclamacoes = data;
+		console.log($scope.reclamacoes);
+		$scope.reclamacao = $scope.reclamacoes[$routeParams.reclamacaoId];
+	});
 });
