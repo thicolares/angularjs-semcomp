@@ -33,13 +33,13 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<form role="form">
+				<form role="form" name="reclamacaoForm" ng-submit="adicionarReclamacao()">
 					<div class="form-group">
 						<label for="empresa">Empresa</label>
 						<select class="form-control" id="empresa" ng-model="empresa" ng-options="empresa.nome for empresa in empresas">
 					</select>
 					</div>
-					
+
 					<div class="well well-sm" ng-show="empresa">
 						<dl class="dl-horizontal">
 							<dt>Nome</dt><dd>{{empresa.nome}}</dd>
