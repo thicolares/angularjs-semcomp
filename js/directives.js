@@ -21,6 +21,23 @@ protocoloDirectives.directive('proObrigatorio', function() {
 	}
 });
 
-// protocoloDirectives.directive('proComentario', function() {
+protocoloDirectives.directive('proComentario', function() {
+	return {
+		restrict: 'E',
+		scope: {
+			reclamacao: '='
+		},
+		controller: function($scope) {
+			$scope.adicionarComentario = function() {
+				$scope.comentario.data = new Date();
+				$scope.reclamacao.comentarios.push(angular.copy($scope.comentario));
+				$scope.comentario = {};
+			}
 
-// });
+			$scope.removeComentario = function(index) {
+
+			}
+		},
+		templateUrl: 'partials/comentario.html'
+	}
+});
